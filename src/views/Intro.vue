@@ -10,10 +10,7 @@
       </transition>
     </div>
     <transition name="fade" mode="out-in">
-      <b-button
-        class="happy-button"
-        v-show="showButton"
-        @click="$router.push('home')"
+      <b-button class="happy-button" v-show="showButton" @click="handleStart"
         >Vivir la experiencia</b-button
       >
     </transition>
@@ -36,6 +33,12 @@ export default {
     setTimeout(() => {
       this.showButton = true;
     }, 4000);
+  },
+  methods: {
+    handleStart: function () {
+      window.localStorage.clear();
+      this.$router.push("home");
+    },
   },
 };
 </script>
