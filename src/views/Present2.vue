@@ -3,18 +3,20 @@
     <div class="present2-content">
       <h2 class="present-2-title-1">Melchor está escribiendo un mail...</h2>
       <h2 class="present-2-title-2">¿Le ayudas a terminarlo?</h2>
-      <b-button class="happy-button" @click="helpMelchor"
+      <b-button :disabled="mailSent" class="happy-button" @click="helpMelchor"
         >Ayudar a Melchor</b-button
       >
       <div class="iframe-wrapper">
-        <iframe
+        <vue-friendly-iframe
+          style="display: none"
           v-if="iframeReady"
           src="https://ngswk.sse.codesandbox.io/"
-          frameborder="0"
-        ></iframe>
+          @load="onIframeLoaded"
+        ></vue-friendly-iframe>
+        <b-loading :is-full-page="isFullPage" v-model="isLoading"></b-loading>
       </div>
     </div>
-    <b-button class="happy-button" @click="handleFinish"
+    <b-button :disabled="!mailSent" class="happy-button" @click="handleFinish"
       >Lista de regalos</b-button
     >
   </div>
@@ -26,16 +28,34 @@ export default {
   data: function () {
     return {
       iframeReady: false,
+      mailSent: false,
+      isLoading: false,
+      isFullPage: false,
     };
   },
   methods: {
     helpMelchor: function () {
       this.iframeReady = true;
+      this.isLoading = true;
     },
     handleFinish: function () {
       window.localStorage.setItem("present2", "done");
 
       this.$router.push("/home");
+    },
+    onIframeLoaded: function () {
+      setTimeout(() => {
+        this.isLoading = false;
+        this.mailSent = true;
+        this.toast();
+      }, 3000);
+    },
+    toast() {
+      this.$buefy.toast.open({
+        message: "Genial!! revisa tus notificaciones...",
+        type: "is-success",
+        duration: 4500,
+      });
     },
   },
 };

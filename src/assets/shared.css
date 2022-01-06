@@ -3,9 +3,21 @@
 }
 
 .happy-button {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
   border: solid 1px black;
   border-radius: 8px;
   padding: 0.5rem 1rem;
   font-weight: bold;
+}
+
+div.notices div.toast div {
+    color: black !important;
+    font-weight: bold !important;
+}
+
+div.loading-overlay.is-active div.loading-icon::after {
+  border: 2px solid var(--primary-color);
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-width: 0.25em;
 }
