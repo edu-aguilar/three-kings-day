@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss">
-@import url("http://fonts.cdnfonts.com/css/chrobot");
+@import url("https://fonts.cdnfonts.com/css/chrobot");
 
 html,
 body,
