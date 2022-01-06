@@ -14,6 +14,12 @@
 <script>
 export default {
   name: "finishyes",
+  mounted: function () {
+    this.$confetti.start({
+      particles: [5],
+      defaultSize: 5,
+    });
+  },
 };
 </script>
 
