@@ -1,0 +1,11 @@
+:root {
+  --primary-color: #00f9a9;
+}
+
+.happy-button {
+  background-color: var(--primary-color);
+  border: solid 1px black;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}

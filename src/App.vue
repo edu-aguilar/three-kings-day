@@ -1,32 +1,45 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <main id="app">
     <router-view />
-  </div>
+  </main>
 </template>
 
 <style lang="scss">
+@import url("http://fonts.cdnfonts.com/css/chrobot");
+
+html,
+body,
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 2rem !important;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Chrobot", Avenir, Helvetica, Arial, sans-serif !important;
+}
+
+#app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  padding: 1rem;
 }
 
-#nav {
-  padding: 30px;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
